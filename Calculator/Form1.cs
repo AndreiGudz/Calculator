@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Calculator
 {
     public partial class Form1 : Form
@@ -32,8 +34,8 @@ namespace Calculator
         // кнопка для всех операций
         private void operationButton_Click(object sender, EventArgs e)
         {
-            if (error)
-                return;
+            if (error) return;
+
             Button button = (Button)sender;
             string operation = button.Text;
             if (button == buttonSqr)
@@ -118,12 +120,10 @@ namespace Calculator
                     catch (DivideByZeroException)
                     {
                         inputAnswereLabel.Text = "Деление на ноль невозможно.";
-                        error = true;
                     }
                     catch (Exception ex)
                     {
                         inputAnswereLabel.Text = ex.Message;
-                        error = true;
                     }
                 }
                 else
@@ -131,6 +131,7 @@ namespace Calculator
                     InvalidNumberMessge();
                     ClearCalculator();
                 }
+                error = true;
             }
         }
 
@@ -165,7 +166,45 @@ namespace Calculator
         private void InvalidNumberMessge()
         {
             inputAnswereLabel.Text = "Некорректное число.";
-            error = true;
+        }
+
+        // реакция на нажатие цифр
+        private void Form1_DigitKeyDown(object sender, KeyEventArgs e)
+        {
+            Debug.WriteLine(e.KeyCode.ToString());
+            switch (e.KeyCode)
+            {
+                case Keys.D0:
+                    digitButton_Click(button0, new EventArgs());
+                    break;
+                case Keys.D1:
+                    digitButton_Click(button1, new EventArgs());
+                    break;
+                case Keys.D2:
+                    digitButton_Click(button2, new EventArgs());
+                    break;
+                case Keys.D3:
+                    digitButton_Click(button3, new EventArgs());
+                    break;
+                case Keys.D4:
+                    digitButton_Click(button4, new EventArgs());
+                    break;
+                case Keys.D5:
+                    digitButton_Click(button5, new EventArgs());
+                    break;
+                case Keys.D6:
+                    digitButton_Click(button6, new EventArgs());
+                    break;
+                case Keys.D7:
+                    digitButton_Click(button7, new EventArgs());
+                    break;
+                case Keys.D8:
+                    digitButton_Click(button8, new EventArgs());
+                    break;
+                case Keys.D9:
+                    digitButton_Click(button9, new EventArgs());
+                    break;
+            }
         }
     }
 }

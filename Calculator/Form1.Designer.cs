@@ -282,8 +282,10 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(inputAnswereLabel);
+            KeyPreview = true;
             Name = "Form1";
             Text = "Калькулятор";
+            KeyDown += Form1_DigitKeyDown;
             ResumeLayout(false);
         }
 
