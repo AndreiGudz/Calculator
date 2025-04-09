@@ -9,6 +9,7 @@ namespace Calculator
         private bool isNewNumber = false;
         private bool error = false;
 
+
         public Form1()
         {
             InitializeComponent();
@@ -116,6 +117,8 @@ namespace Calculator
                         }
                         inputAnswereLabel.Text = result.ToString();
                         isNewNumber = true;
+                        firstNumber = null;
+                        currentOperator = null;
                     }
                     catch (DivideByZeroException)
                     {
@@ -131,8 +134,8 @@ namespace Calculator
                     InvalidNumberMessge();
                     ClearCalculator();
                 }
-                error = true;
             }
+            error = true;
         }
 
         private void SetOperator(string op)
@@ -205,6 +208,12 @@ namespace Calculator
                     digitButton_Click(button9, new EventArgs());
                     break;
             }
+        }
+
+        private void buttonInversion_Click(object sender, EventArgs e)
+        {
+            // надо сделать
+            throw new NotImplementedException();
         }
     }
 }

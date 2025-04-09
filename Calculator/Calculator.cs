@@ -4,6 +4,7 @@ namespace Calculator
 {
     public static class Calculator
     {
+        public const double epsilon = 1E-8;
         public static double Add(double a, double b) => a + b;
         public static double Subtract(double a, double b) => a - b;
         public static double Multiply(double a, double b) => a * b;
@@ -18,7 +19,15 @@ namespace Calculator
         {
             if (a < 0)
                 throw new ArgumentException("Невозможно извлечь корень из отрицательного числа.");
-            return Math.Sqrt(a);
+
+            double root = a;  // Начальное приближение
+            while (Math.Abs(root * root - a) > epsilon)  // Пока точность не достигнута
+            {
+                root = (root + a / root) / 2;  // Метод Герона
+            }
+            return Math.Round(root, 8);
+
+            // return Math.Sqrt(number);
         }
     }
 }

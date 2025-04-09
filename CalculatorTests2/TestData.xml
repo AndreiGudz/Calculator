@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<TestCases>
+	<DivideTestCases>
+		<TestCase>
+			<Param1>6</Param1>
+			<Param2>2</Param2>
+			<Param3>3</Param3>
+		</TestCase>
+		<TestCase>
+			<Param1>-8</Param1>
+			<Param2>2</Param2>
+			<Param3>-4</Param3>
+		</TestCase>
+		<TestCase>
+			<Param1>10</Param1>
+			<Param2>2</Param2>
+			<Param3>4</Param3>
+		</TestCase>
+	</DivideTestCases>
+
+	<SquareRootTestCases>
+		<TestCase>
+			<Param1>4</Param1>
+			<Param2>2</Param2>
+		</TestCase>
+		<TestCase>
+			<Param1>9</Param1>
+			<Param2>3</Param2>
+		</TestCase>
+		<TestCase>
+			<Param1>16</Param1>
+			<Param2>5</Param2>
+		</TestCase>
+	</SquareRootTestCases>
+
+</TestCases>

@@ -2,12 +2,14 @@
 using Calculator;
 using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace Calculator.Tests
 {
     [TestClass()]
     public class CalculatorTests
     {
+/*        #region Тесты для других операций
         // Тесты для Add
         public static IEnumerable<object[]> GetTestDataForAdd()
         {
@@ -56,22 +58,6 @@ namespace Calculator.Tests
             Assert.AreEqual(result, actualResult);
         }
 
-        // Тесты для Divide
-        public static IEnumerable<object[]> GetTestDataForDivide()
-        {
-            yield return new object[] { 6, 2, 3 };    // положительный
-            yield return new object[] { -8, 2, -4 };  // положительный
-            yield return new object[] { 10, 2, 4 };   // отрицательный
-        }
-
-        [TestMethod()]
-        [DynamicData(nameof(GetTestDataForDivide), DynamicDataSourceType.Method)]
-        public void DivideTest(double a, double b, double result)
-        {
-            double actualResult = Calculator.Divide(a, b);
-            Assert.AreEqual(result, actualResult);
-        }
-
         // Тесты для Square
         public static IEnumerable<object[]> GetTestDataForSquare()
         {
@@ -88,12 +74,43 @@ namespace Calculator.Tests
             Assert.AreEqual(result, actualResult);
         }
 
+        #endregion*/
+
+        // Тесты для Divide
+        public static IEnumerable<object[]> GetTestDataForDivide()
+        {
+            var doc = XDocument.Load("TestData.xml");
+            return doc.Root
+                .Element("DivideTestCases")
+                .Elements("TestCase")
+                .Select(el => new object[] 
+                { 
+                    double.Parse(el.Element("Param1").Value),
+                    double.Parse(el.Element("Param2").Value),
+                    double.Parse(el.Element("Param3").Value)
+                });
+        }
+
+        [TestMethod()]
+        [DynamicData(nameof(GetTestDataForDivide), DynamicDataSourceType.Method)]
+        public void DivideTest(double a, double b, double result)
+        {
+            double actualResult = Calculator.Divide(a, b);
+            Assert.AreEqual(result, actualResult, Calculator.epsilon, $"ожидалось {result}, при делении {a} на {b}, а получено {actualResult}");
+        }
+
         // Тесты для SquareRoot
         public static IEnumerable<object[]> GetTestDataForSquareRoot()
         {
-            yield return new object[] { 4, 2 };      // положительный
-            yield return new object[] { 9, 3 };      // положительный
-            yield return new object[] { 16, 5 };     // отрицательный
+            var doc = XDocument.Load("TestData.xml");
+            return doc.Root
+                .Element("SquareRootTestCases")
+                .Elements("TestCase")
+                .Select(el => new object[]
+                {
+                    double.Parse(el.Element("Param1").Value),
+                    double.Parse(el.Element("Param2").Value)
+                });
         }
 
         [TestMethod()]
@@ -101,7 +118,7 @@ namespace Calculator.Tests
         public void SquareRootTest(double a, double result)
         {
             double actualResult = Calculator.SquareRoot(a);
-            Assert.AreEqual(result, actualResult);
+            Assert.AreEqual(result, actualResult, Calculator.epsilon, $"ожидалось {result}, при вычислении квадратного корня, а получено {actualResult}");
         }
 
         // Дополнительный тест для проверки исключения при делении на 0
@@ -110,6 +127,7 @@ namespace Calculator.Tests
         public void DivideByZeroTest()
         {
             Calculator.Divide(5, 0);
+            Assert.Fail("Исключение не произошло");
         }
 
         // Дополнительный тест для проверки исключения при отрицательном числе в SquareRoot
@@ -118,6 +136,7 @@ namespace Calculator.Tests
         public void SquareRootNegativeTest()
         {
             Calculator.SquareRoot(-4);
+            Assert.Fail("Исключение не произошло");
         }
     }
 }

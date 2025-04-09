@@ -39,14 +39,15 @@
             button8 = new Button();
             button9 = new Button();
             button0 = new Button();
-            buttonPlus = new Button();
-            buttonMinus = new Button();
-            buttonMultiply = new Button();
             buttonDivide = new Button();
-            buttonSqr = new Button();
             buttonSqrt = new Button();
             buttonEquals = new Button();
             buttonClear = new Button();
+            buttonSqr = new Button();
+            buttonMultiply = new Button();
+            buttonMinus = new Button();
+            buttonPlus = new Button();
+            buttonInversion = new Button();
             SuspendLayout();
             // 
             // inputAnswereLabel
@@ -169,39 +170,6 @@
             button0.UseVisualStyleBackColor = true;
             button0.Click += digitButton_Click;
             // 
-            // buttonPlus
-            // 
-            buttonPlus.Font = new Font("Segoe UI", 14.1428576F);
-            buttonPlus.Location = new Point(436, 88);
-            buttonPlus.Name = "buttonPlus";
-            buttonPlus.Size = new Size(107, 94);
-            buttonPlus.TabIndex = 11;
-            buttonPlus.Text = "+";
-            buttonPlus.UseVisualStyleBackColor = true;
-            buttonPlus.Click += operationButton_Click;
-            // 
-            // buttonMinus
-            // 
-            buttonMinus.Font = new Font("Segoe UI", 14.1428576F);
-            buttonMinus.Location = new Point(559, 88);
-            buttonMinus.Name = "buttonMinus";
-            buttonMinus.Size = new Size(107, 94);
-            buttonMinus.TabIndex = 12;
-            buttonMinus.Text = "-";
-            buttonMinus.UseVisualStyleBackColor = true;
-            buttonMinus.Click += operationButton_Click;
-            // 
-            // buttonMultiply
-            // 
-            buttonMultiply.Font = new Font("Segoe UI", 14.1428576F);
-            buttonMultiply.Location = new Point(436, 188);
-            buttonMultiply.Name = "buttonMultiply";
-            buttonMultiply.Size = new Size(107, 94);
-            buttonMultiply.TabIndex = 13;
-            buttonMultiply.Text = "*";
-            buttonMultiply.UseVisualStyleBackColor = true;
-            buttonMultiply.Click += operationButton_Click;
-            // 
             // buttonDivide
             // 
             buttonDivide.Font = new Font("Segoe UI", 14.1428576F);
@@ -212,17 +180,6 @@
             buttonDivide.Text = "/";
             buttonDivide.UseVisualStyleBackColor = true;
             buttonDivide.Click += operationButton_Click;
-            // 
-            // buttonSqr
-            // 
-            buttonSqr.Font = new Font("Segoe UI", 14.1428576F);
-            buttonSqr.Location = new Point(436, 288);
-            buttonSqr.Name = "buttonSqr";
-            buttonSqr.Size = new Size(107, 94);
-            buttonSqr.TabIndex = 15;
-            buttonSqr.Text = "^2";
-            buttonSqr.UseVisualStyleBackColor = true;
-            buttonSqr.Click += operationButton_Click;
             // 
             // buttonSqrt
             // 
@@ -257,12 +214,68 @@
             buttonClear.UseVisualStyleBackColor = true;
             buttonClear.Click += buttonClear_Click;
             // 
+            // buttonSqr
+            // 
+            buttonSqr.Font = new Font("Segoe UI", 14.1428576F);
+            buttonSqr.Location = new Point(436, 288);
+            buttonSqr.Name = "buttonSqr";
+            buttonSqr.Size = new Size(107, 94);
+            buttonSqr.TabIndex = 15;
+            buttonSqr.Text = "^2";
+            buttonSqr.UseVisualStyleBackColor = true;
+            buttonSqr.Click += operationButton_Click;
+            // 
+            // buttonMultiply
+            // 
+            buttonMultiply.Font = new Font("Segoe UI", 14.1428576F);
+            buttonMultiply.Location = new Point(436, 188);
+            buttonMultiply.Name = "buttonMultiply";
+            buttonMultiply.Size = new Size(107, 94);
+            buttonMultiply.TabIndex = 13;
+            buttonMultiply.Text = "*";
+            buttonMultiply.UseVisualStyleBackColor = true;
+            buttonMultiply.Click += operationButton_Click;
+            // 
+            // buttonMinus
+            // 
+            buttonMinus.Font = new Font("Segoe UI", 14.1428576F);
+            buttonMinus.Location = new Point(559, 88);
+            buttonMinus.Name = "buttonMinus";
+            buttonMinus.Size = new Size(107, 94);
+            buttonMinus.TabIndex = 12;
+            buttonMinus.Text = "-";
+            buttonMinus.UseVisualStyleBackColor = true;
+            buttonMinus.Click += operationButton_Click;
+            // 
+            // buttonPlus
+            // 
+            buttonPlus.Font = new Font("Segoe UI", 14.1428576F);
+            buttonPlus.Location = new Point(436, 88);
+            buttonPlus.Name = "buttonPlus";
+            buttonPlus.Size = new Size(107, 94);
+            buttonPlus.TabIndex = 11;
+            buttonPlus.Text = "+";
+            buttonPlus.UseVisualStyleBackColor = true;
+            buttonPlus.Click += operationButton_Click;
+            // 
+            // buttonInversion
+            // 
+            buttonInversion.Font = new Font("Segoe UI", 14.1428576F);
+            buttonInversion.Location = new Point(238, 388);
+            buttonInversion.Name = "buttonInversion";
+            buttonInversion.Size = new Size(107, 94);
+            buttonInversion.TabIndex = 19;
+            buttonInversion.Text = "+/-";
+            buttonInversion.UseVisualStyleBackColor = true;
+            buttonInversion.Click += buttonInversion_Click;
+            // 
             // Form1
             // 
             AcceptButton = buttonEquals;
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(695, 502);
+            Controls.Add(buttonInversion);
             Controls.Add(buttonClear);
             Controls.Add(buttonEquals);
             Controls.Add(buttonSqrt);
@@ -302,13 +315,14 @@
         private Button button8;
         private Button button9;
         private Button button0;
-        private Button buttonPlus;
-        private Button buttonMinus;
-        private Button buttonMultiply;
         private Button buttonDivide;
-        private Button buttonSqr;
         private Button buttonSqrt;
         private Button buttonEquals;
         private Button buttonClear;
+        private Button buttonSqr;
+        private Button buttonMultiply;
+        private Button buttonMinus;
+        private Button buttonPlus;
+        private Button buttonInversion;
     }
 }
