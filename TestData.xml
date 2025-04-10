@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <TestCases>
 	<DivideTestCases>
 		<TestCase>
@@ -32,5 +32,20 @@
 			<Param2>5</Param2>
 		</TestCase>
 	</SquareRootTestCases>
+
+	<StringSumCases>
+		<TestCase>
+			<Param1>qwte123qwe</Param1>
+			<Param2>6</Param2>
+		</TestCase>
+		<TestCase>
+			<Param1>ajskdlfuwef1lak;sdiuy9a;sdfhui0asjdfn;10</Param1>
+			<Param2>11</Param2>
+		</TestCase>
+		<TestCase>
+			<Param1>000000000000001000000000001000000011000</Param1>
+			<Param2>4</Param2>
+		</TestCase>
+	</StringSumCases>
 
 </TestCases>

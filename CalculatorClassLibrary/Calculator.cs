@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Calculator
 {
@@ -29,5 +30,7 @@ namespace Calculator
 
             // return Math.Sqrt(number);
         }
+
+        public static int StringSum(string s) => s.ToArray().Where(x => char.IsDigit(x)).Select(x => (int)(x - '0')).Sum();
     }
 }

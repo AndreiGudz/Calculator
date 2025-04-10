@@ -13,6 +13,8 @@ namespace Calculator
         public Form1()
         {
             InitializeComponent();
+
+            Calculator.StringSum("qwte123qwe");
         }
 
         // кнопка для всех цифр
